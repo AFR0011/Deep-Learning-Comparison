@@ -38,6 +38,8 @@ Key Features and Functionalities:
    - Assumes wine quality labels range from 3 to 9 and supports multi-class classification with 7 distinct classes.
 
 This script demonstrates the integration of traditional machine learning preprocessing with deep learning techniques to tackle real-world multi-class classification challenges.
+
+Code written by: Ali Farrokhnejad
 """
 
 import pandas as pd

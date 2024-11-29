@@ -40,6 +40,8 @@ Requirements:
    - Designed for datasets with quality labels ranging from 3 to 9.
 
 This script showcases a practical application of deep learning and machine learning techniques for wine quality classification.
+
+Code written by: Ali Farrokhnejad
 """
 
 import pandas as pd

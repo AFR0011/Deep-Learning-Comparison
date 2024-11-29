@@ -37,6 +37,8 @@ Key Features and Functionalities:
    - Designed for datasets with quality labels ranging from 3 to 8 (red wine) and 3 to 9 (white wine).
 
 This script demonstrates the application of machine learning and deep learning techniques for multi-class classification in a practical setting.
+
+Code written by: Ali Farrokhnejad
 """
 
 import pandas as pd
