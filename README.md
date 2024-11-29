@@ -61,3 +61,26 @@ To run this project, you will need the following Python libraries:
 You can install the required libraries using `pip`:
 ```bash
 pip install -r requirements.txt
+```
+## File Structure
+The repository contains the following files:
+
+/
+├── README.md                   # Project overview and documentation
+├── Data                        # Contains red and white wine datasets in .csv format
+├── Src                         # Contains implementation of different architectures and models
+├── requirements.txt            # List of required Python packages
+└── LICENSE                     # Project license
+
+## Usage
+**Clone the Repository:** To clone this repository, use the following command:
+
+
+```
+git clone https://github.com/AFR0011/Deep-Learning-Comparison.git
+cd Deep-Learning-Comparison
+```
+
+**Prepare the Data:** Make sure you have the datasets *winequality-red.csv* and *winequality-white.csv* available in the project directory.
+
+**Run the Models:** You can find the models in the *Src* directory.
