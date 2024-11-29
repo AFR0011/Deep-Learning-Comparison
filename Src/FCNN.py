@@ -1,47 +1,44 @@
 """
-This script implements a Fully Connected Neural Network (FCNN) which
-performs wine quality classification using red and white wine datasets.
+Wine Quality Classification Using a Fully Connected Neural Network (FCNN)
+
+This script builds and evaluates a deep learning model to classify the quality of red and white wines using PyTorch. 
+It employs rigorous data preprocessing, class balancing, and advanced evaluation techniques to ensure robust model performance.
 Dataset link: https://archive.ics.uci.edu/dataset/186/wine+quality
 
-The process includes data preprocessing, feature engineering, model training, and evaluation.
-Key functionalities:
+Key Features and Functionalities:
 
-1. Data Loading and Preprocessing:
-   - Reads red and white wine datasets.
-   - Extracts features and maps quality labels to numeric values.
-   - Removes highly correlated features to reduce redundancy.
-   - Standardizes the features and applies Principal Component Analysis (PCA) for dimensionality reduction.
+1. **Data Loading and Preprocessing**:
+   - Reads red and white wine datasets in CSV format.
+   - Maps wine quality labels to numeric classes for classification.
+   - Removes highly correlated features to avoid redundancy.
+   - Standardizes features and applies Principal Component Analysis (PCA) for dimensionality reduction.
 
-2. Data Balancing with SMOTE:
-   - Uses Synthetic Minority Oversampling Technique (SMOTE) to address class imbalance in the datasets.
+2. **Class Balancing with SVMSMOTE**:
+   - Uses Synthetic Minority Oversampling Technique (SVMSMOTE) to address imbalanced classes and improve classifier performance.
 
-3. PyTorch Integration:
-   - Converts datasets into PyTorch tensors for model training.
-   - Implements class weighting to handle imbalanced classes during model training.
+3. **PyTorch-based Implementation**:
+   - Converts preprocessed datasets into PyTorch tensors for compatibility with deep learning models.
+   - Defines a Fully Connected Neural Network (FCNN) with dropout layers for regularization.
+   - Implements dynamic learning rate adjustment using ReduceLROnPlateau scheduler.
 
-4. Visualization:
-   - Generates PCA visualizations for 2D representation of data.
-   - Plots confusion matrices for detailed performance analysis.
+4. **Visualization**:
+   - Visualizes data distribution post-PCA in a 2D space.
+   - Plots normalized confusion matrices for detailed performance analysis.
 
-5. Model Definition and Training:
-   - Defines the FCNN with dropout for classification.
-   - Initializes model weights using the Kaiming initialization method.
-   - Trains the model with Adam optimizer and a learning rate scheduler to improve convergence.
+5. **Training and Cross-Validation**:
+   - Employs k-fold cross-validation to ensure robust evaluation across data splits.
+   - Aggregates confusion matrices across folds to highlight model consistency.
 
-6. Evaluation and Metrics:
-   - Evaluates the model using accuracy, confusion matrix, and classification report.
-   - Supports cross-validation to ensure robust performance across multiple folds.
+6. **Evaluation Metrics**:
+   - Measures accuracy, generates classification reports, and visualizes confusion matrices for comprehensive performance analysis.
 
-7. Cross-Validation:
-   - Implements k-fold cross-validation with aggregated confusion matrices for performance consistency across splits.
+7. **Requirements**:
+   - Datasets should be saved as 'winequality-red.csv' and 'winequality-white.csv' in a folder named "Data".
+   - Designed for datasets with quality labels ranging from 3 to 8 (red wine) and 3 to 9 (white wine).
 
-8. Usage Notes:
-   - Red and white wine datasets only contain samples representing labels [3-8] and [3-9], respectively;
-     The FCNN has been modified to accommodate the datasets accordingly.
-   - Datasets must be available as 'winequality-red.csv' and 'winequality-white.csv' in the working directory, under "Data".
-
-The script is designed to explore the classification potential of machine learning and deep learning models on wine datasets, balancing rigor in data preparation and reproducibility in model evaluation.
+This script demonstrates the application of machine learning and deep learning techniques for multi-class classification in a practical setting.
 """
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedKFold

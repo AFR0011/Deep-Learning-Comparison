@@ -1,46 +1,47 @@
 """
-This script implements a hybrid CNN-SVM pipeline for wine quality classification using red and white wine datasets.
-It includes the following key steps:
+Hybrid CNN-SVM Model for Wine Quality Classification
 
-1. **Imports**:
-    - Necessary libraries for data processing, machine learning, and deep learning, such as `pandas`, `numpy`, `sklearn`, `torch`, and others.
+This script implements a CNN-based feature extractor followed by an SVM classifier to predict wine quality from red and white wine datasets.
+It applies advanced preprocessing, dimensionality reduction, class balancing, and cross-validation to ensure robust model evaluation.
+Dataset link: https://archive.ics.uci.edu/dataset/186/wine+quality
 
-2. **Data Loading**:
-    - Loads red and white wine datasets using `pandas.read_csv`.
+Key Features:
 
-3. **Preprocessing**:
-    - Cleans the data by removing highly correlated features.
-    - Standardizes the features using `StandardScaler`.
-    - Optionally reduces dimensions via PCA to retain a specified variance.
+1. **Data Loading and Preprocessing**:
+   - Loads wine datasets from CSV files.
+   - Maps wine quality labels to numeric classes for multi-class classification.
+   - Removes highly correlated features to reduce redundancy.
+   - Standardizes data and supports optional PCA for dimensionality reduction.
 
-4. **Data Conversion**:
-    - Converts the processed data into PyTorch tensors for compatibility with neural network training.
+2. **Class Balancing**:
+   - Balances class distributions using SVMSMOTE to mitigate imbalanced datasets.
 
-5. **Balancing Data**:
-    - Balances imbalanced datasets using SMOTE (Synthetic Minority Oversampling Technique).
+3. **Hybrid CNN-SVM Approach**:
+   - Uses a CNN to extract meaningful features from wine data.
+   - Trains an SVM classifier on these features to predict wine quality.
 
-6. **Feature Extraction**:
-    - Defines a custom 1D CNN model (`FeatureExtractorCNN`) for feature extraction from wine datasets.
-    - Trains the CNN model using a custom training loop.
+4. **Cross-Validation**:
+   - Employs k-fold cross-validation to ensure reliable performance assessment.
+   - Aggregates confusion matrices across folds for comprehensive analysis.
 
-7. **Classification**:
-    - Extracts features using the trained CNN.
-    - Trains an SVM (Support Vector Machine) classifier on the extracted features.
-    - Evaluates the SVM classifier using metrics such as accuracy.
+5. **Visualization**:
+   - Includes functionality to visualize PCA results in 2D space.
+   - Plots confusion matrices with normalization to interpret classification results.
 
-8. **Cross-Validation**:
-    - Performs k-fold cross-validation to assess the performance of the CNN-SVM pipeline on both datasets.
-    - Prints metrics for each fold.
+6. **Hyperparameter Tuning**:
+   - Implements a learning rate scheduler for dynamic adjustment during CNN training.
 
-9. **Visualization**:
-    - Visualizes PCA results to inspect the separability of classes in 2D space.
+7. **Evaluation Metrics**:
+   - Computes accuracy, confusion matrix, and classification reports for model evaluation.
 
-Key configurable parameters:
-- PCA variance retention (`n_components`).
-- Neural network architecture and hyperparameters.
-- SVM kernel type and regularization parameter (`C`).
-- Number of cross-validation folds (`k`).
+Requirements:
+   - Red and white wine datasets saved as 'winequality-red.csv' and 'winequality-white.csv', respectively.
+   - Libraries: PyTorch, scikit-learn, imbalanced-learn, matplotlib, seaborn.
+   - Designed for datasets with quality labels ranging from 3 to 9.
+
+This script showcases a practical application of deep learning and machine learning techniques for wine quality classification.
 """
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
