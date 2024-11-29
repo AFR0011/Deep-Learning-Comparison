@@ -84,3 +84,6 @@ cd Deep-Learning-Comparison
 **Prepare the Data:** Make sure you have the datasets *winequality-red.csv* and *winequality-white.csv* available in the project directory.
 
 **Run the Models:** You can find the models in the *Src* directory.
+
+## License
+This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
