@@ -65,12 +65,13 @@ pip install -r requirements.txt
 ## File Structure
 The repository contains the following files:
 
-/
+```
 ├── README.md                   # Project overview and documentation
 ├── Data                        # Contains red and white wine datasets in .csv format
 ├── Src                         # Contains implementation of different architectures and models
 ├── requirements.txt            # List of required Python packages
 └── LICENSE                     # Project license
+```
 
 ## Usage
 **Clone the Repository:** To clone this repository, use the following command:
